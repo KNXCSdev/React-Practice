@@ -1,11 +1,7 @@
-import TodoList from "./customhook/todo-list";
+import HackerNewsTop10 from "./top10-list/HackerNewsTop10";
 
 function App() {
-  return (
-    <div className="flex flex-col gap-32">
-      <TodoList />
-    </div>
-  );
+  return <HackerNewsTop10 />;
 }
 
 export default App;
