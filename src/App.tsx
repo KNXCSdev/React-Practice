@@ -1,9 +1,9 @@
-import ToDoList from "./drag&drop/ToDoList";
+import MovieSearchPage from "./movieSearch/MovieSearch";
 
 function App() {
   return (
     <div className="mx-auto max-w-[120rem]">
-      <ToDoList />
+      <MovieSearchPage />
     </div>
   );
 }
