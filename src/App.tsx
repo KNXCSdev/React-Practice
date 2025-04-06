@@ -1,7 +1,11 @@
-import HackerNewsTop10 from "./top10-list/HackerNewsTop10";
+import ToDoList from "./drag&drop/ToDoList";
 
 function App() {
-  return <HackerNewsTop10 />;
+  return (
+    <div className="mx-auto max-w-[120rem]">
+      <ToDoList />
+    </div>
+  );
 }
 
 export default App;
