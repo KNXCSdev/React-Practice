@@ -1,9 +1,9 @@
-import MovieSearchPage from "./movieSearch/MovieSearch";
+import TimerReset from "./timerReset/TimerReset";
 
 function App() {
   return (
     <div className="mx-auto max-w-[120rem]">
-      <MovieSearchPage />
+      <TimerReset />
     </div>
   );
 }
