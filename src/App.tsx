@@ -1,9 +1,9 @@
-import PokemonList from "./pokemonListLoadMore/PokemonList";
+import ContactForm from "./contactbook/ContactForm";
 
 function App() {
   return (
     <div className="mx-auto max-w-[120rem]">
-      <PokemonList />
+      <ContactForm />
     </div>
   );
 }
