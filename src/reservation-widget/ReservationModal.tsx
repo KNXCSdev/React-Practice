@@ -13,17 +13,20 @@ export default function ReservationModal({
   const [people, setPeople] = useState<number>(1);
   const [date, setDate] = useState<string>("");
   const [time, setTime] = useState<string>("");
-  const [isPeopleModalOpen, setIsPeopleModalOpen] = useState(false);
-  const [isTimeModalOpen, setIsTimeModalOpen] = useState(false);
+  const [openModal, setOpenModal] = useState<"people" | "time" | null>(null);
+
+  function handleModal(modalName: "people" | "time") {
+    setOpenModal(openModal === modalName ? null : modalName);
+  }
 
   function handleClickPeople(value: number | string) {
     setPeople(Number(value));
-    setIsPeopleModalOpen(false);
+    handleModal("people");
   }
 
   function handleClickTime(value: number | string) {
     setTime(`${value}:00`);
-    setIsTimeModalOpen(false);
+    handleModal("time");
   }
 
   return (
@@ -66,10 +69,10 @@ export default function ReservationModal({
                     className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-3 text-3xl text-gray-900 focus:border-blue-500 focus:ring-blue-500"
                     required
                     value={people}
-                    onClick={() => setIsPeopleModalOpen(!isPeopleModalOpen)}
+                    onClick={() => handleModal("people")}
                   />
-                  {isPeopleModalOpen && (
-                    <div className="absolute top-20 grid w-full grid-cols-5 gap-8 rounded-lg bg-gray-300 p-10 shadow-2xl">
+                  {openModal === "people" && (
+                    <div className="absolute top-20 z-50 grid w-full grid-cols-5 gap-8 rounded-lg bg-gray-300 p-10 shadow-2xl">
                       {Array.from({ length: 10 }, (_, i) => (
                         <SelectableButton
                           key={i + 1}
@@ -117,10 +120,10 @@ export default function ReservationModal({
                     className="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-3xl text-gray-900 focus:border-blue-500 focus:ring-blue-500"
                     required
                     value={time}
-                    onClick={() => setIsTimeModalOpen(!isTimeModalOpen)}
+                    onClick={() => handleModal("time")}
                     readOnly
                   />
-                  {isTimeModalOpen && (
+                  {openModal === "time" && (
                     <div className="absolute top-20 grid w-full grid-cols-5 gap-8 rounded-lg bg-gray-300 p-10 shadow-2xl">
                       {Array.from({ length: 10 }, (_, i) => {
                         const hour = i + 8;
